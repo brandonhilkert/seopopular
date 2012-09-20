@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'active_support/core_ext'
 
 module Project
   class App < Sinatra::Base
@@ -45,7 +46,7 @@ module Project
           results_per_day = 0
         end
 
-        @results << { "label" => v.fetch("label"), "result" => results_per_day }
+        @results << { "date" => v.fetch("date"), "result" => results_per_day }
       end
 
       erb :search
@@ -53,12 +54,12 @@ module Project
 
     def time_ranges
       {
-        "d" => { "label" => "Last day", "days" => 1 },
-        "w" => { "label" => "Last week", "days" => 7 },
-        "m" => { "label" => "Last month", "days" => 30 },
-        "m6" => { "label" => "Last 6 months", "days" => 182 },
-        "y" => { "label" => "Last year", "days" => 165 },
-        "y2" => { "label" => "Last 2 years", "days" => 730 },
+        "d" => { "date" => Date.today, "days" => 1 },
+        "w" => { "date" => 1.weeks.ago.to_date, "days" => 7 },
+        "m" => { "date" => 1.month.ago.to_date, "days" => 30 },
+        "m6" => { "date" => 6.months.ago.to_date, "days" => 182 },
+        "y" => { "date" => 1.year.ago.to_date, "days" => 165 },
+        "y2" => { "date" => 2.years.ago.to_date, "days" => 730 },
       }
     end
   end
