@@ -1,0 +1,19 @@
+<%= erb :search_form, q: @q %>
+
+<div class="results">
+<% @results.each do |result| %>
+  <div class="stat">
+    <div class="value">
+      <%= result.fetch("result") %>
+      <div class="units">
+        per day
+      </div>
+    </div>
+
+    <div class="text">
+      <%= result.fetch("label") %>
+    </div>
+  </div>
+
+<% end %>
+</div>

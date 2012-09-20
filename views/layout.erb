@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Seo Popular</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Description" />
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="<%= asset_path('application.css') %>" rel="stylesheet" type="text/css" />
+    <script src="<%= asset_path('application.js') %>"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <%= yield %>
+      </div>
+    </div>
+    <footer>
+      <a href="http://twitter.com/brandonhilkert" target="_blank">@brandonhilkert</a>
+    </footer>
+  </body>
+</html>
